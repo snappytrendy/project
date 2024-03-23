@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8" />
-    <meta name"viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="stylesheet1.css" />
     <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
     <meta charset="utf-8">
@@ -12,10 +13,11 @@
     <title>ABOUT US</title>
     <style>
         body {
-            background-image: url(https://images.unsplash.com/photo-1558818498-28c1e002b655?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Path to your background image */
+            background-image: url(https://images.unsplash.com/photo-1558818498-28c1e002b655?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            /* Path to your background image */
             background-size: cover;
             background-position: center center;
-            background-repeat:no-repeat;
+            background-repeat: no-repeat;
             color: white;
             padding: 20px;
             text-align: center;
@@ -33,23 +35,24 @@
     </style>
 
 </head>
+
 <body>
-<nav class="navbar">
-    <div class="navdiv">
-        <div class="logo">  
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
-         </div>
-         <div class="title">
-            <h2> MUNCHMEALS CAFE</h2>
-    </div>
-        <ul>
-            <li><a href="http://localhost/project/homepage.php">Home</a></li>
-            <li><a href="http://localhost/project/aboutpage.php">About</a></li>
-            <li><a href="http://localhost/project/contact%20page.php">Contacts</a></li>
-            <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
+            </div>
+            <div class="title">
+                <h2> MUNCHMEALS CAFE</h2>
+            </div>
+            <ul>
+                <li><a href="http://localhost/project/homepage.php">Home</a></li>
+                <li><a href="http://localhost/project/aboutpage.php">About</a></li>
+                <li><a href="http://localhost/project/contact%20page.php">Contacts</a></li>
+                <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="heading">
         <hi> ABOUT US</hi>
         <div class="right-align">
@@ -74,7 +77,8 @@
         }
 
         .reasons-list {
-            list-style-type: square; /* Choose your preferred list style */
+            list-style-type: square;
+            /* Choose your preferred list style */
         }
     </style>
 
@@ -89,6 +93,5 @@
     </div>
 
 </body>
+
 </html>
-
-
