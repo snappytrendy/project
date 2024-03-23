@@ -2,7 +2,7 @@
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
-$dbname = "food order platform";
+$dbname = "food_order_platform";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection

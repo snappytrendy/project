@@ -23,6 +23,7 @@
             text-align: center;
             opacity: 1.0;
         }
+        /* place category-list */
     </style>
 </head>
 <div class="row">

@@ -13,14 +13,15 @@
     <style>
         body {
             background-image: url(https://img.freepik.com/free-photo/fresh-colourful-ingredients-mexican-cuisine_23-2148254294.jpg);
-            background-color: white;
-            background-size: 100%, 50%;
+            /* background-color: white; */
+            background-size: 100% 50%;
             background-position: top;
             background-repeat: round;
             color: black;
             padding: 20px;
             text-align: center;
             opacity: 1.5;
+            backdrop-filter: blur(5px);
         }
     </style>
 
@@ -113,6 +114,15 @@
                 /* Add some space at the bottom */
             }
 
+            /* make the images display in flex */
+            .category-list {
+                display: flex;
+                /* width: 100%; */
+                /* height: 100%; */
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                align-content: center;
+            }
 
             .category-card {
                 position: relative;
@@ -121,6 +131,7 @@
                 overflow: hidden;
                 border-radius: 10px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 15px;
             }
 
             .category-card img {
@@ -192,42 +203,6 @@
             }
 
             ?>
-            <div class="container">
-                <button id="showFormBtn">Book Your Table</button>
-                <form id="bookingForm" class="hidden">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date:</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time:</label>
-                        <input type="time" id="time" name="time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="people">Number of People:</label>
-                        <input type="number" id="people" name="people" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specialRequests">Special Requests:</label>
-                        <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
-                    </div>
-                    <button type="submit">Book Now</button>
-
-                    <script>
-                        document.getElementById('showFormBtn').addEventListener('click', function() {
-                            document.getElementById('bookingForm').classList.remove('hidden');
-                        });
-                    </script>
-                </form>
-            </div>
 </body>
 
 </html>
