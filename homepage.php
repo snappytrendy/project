@@ -114,7 +114,7 @@
     <div class="home">
         <div class="main_slide">
             <div>
-                <hi> Enjoy <span> Quality Taste</span> in your meal.<hi>
+                <h1> Enjoy <span> Quality Taste</span> in your meal.</h1>
             </div>
         </div>
         <style>
@@ -200,7 +200,7 @@
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="category-card">';
-                    echo '<a href="category.php?id=' . $row['id'] . '">';
+                    echo '<a href="meals.php?id=' . $row['id'] . '">';
                     echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
                     echo '<div class="category-overlay">';
                     echo '<div class="category-name">' . $row['name'] . '</div>';
@@ -218,7 +218,11 @@
                 echo 'No categories found.';
             }
 
+            // Close database connection
+            $conn->close();
             ?>
+        </div>
+    </div>
 </body>
 
 </html>

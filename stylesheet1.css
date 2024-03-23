@@ -124,6 +124,7 @@ input {
 
 h1 {
   text-align: center;
+  font-size: 30px;
 }
 
 .map h2 {
@@ -320,7 +321,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
 }
-.navbar ul{
+.navbar ul {
   list-style-type: none;
   /* margin: 0; */
   /* padding: 0; */
