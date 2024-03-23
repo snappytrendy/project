@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Salad</title>
+</head>
+<body>
+    <div class="column">
+        <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2022/FruitSalad_Shot4_20.jpg?w=960&h=540&q=82&fm=jpg&fit=crop&dm=1654019861&s=d8235f3ac54714943ed5b1eaf6dd0484" alt="Salad3">
+        <h3>Fruit Salad</h3>
+        <p>Juicy, sweet and oh-so-colorful, there's nothing like fresh fruit salad! Our favorite fruit salad .</p>
+        <p class="price">Price: $11.99</p>
+        <button class="add-to-cart" data-name="" data-price="">Add To Cart</button>
+    </div>
+
+    <script>
+        // Get the relevant elements
+        const addToCartButton = document.querySelector('.add-to-cart');
+        const productName = document.querySelector('.column h3').textContent.trim();
+        const productPrice = document.querySelector('.column .price').textContent.trim().replace('Price: ', '');
+
+        // Set data attributes
+        addToCartButton.dataset.name = productName;
+        addToCartButton.dataset.price = productPrice;
+
+        // Print the output
+        console.log("Product Name:", addToCartButton.dataset.name);
+        console.log("Product Price:", addToCartButton.dataset.price);
+    </script>
+</body>
+</html>

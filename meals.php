@@ -9,7 +9,6 @@
     <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/meals.css">
     <title>OUR MENU</title>
     <style>
         body {
@@ -134,6 +133,7 @@
         }
 
         @media screen and (max-width: 768px) {
+
             /* Adjust the position of the buttons for smaller screens */
             #removeButton,
             .cart-button {
@@ -192,9 +192,6 @@
 
     <!-- Salads Section -->
     <section class="salads" id="2">
-        <style>
-            
-        </style>
         <div class="food-tag">Salad Section</div>
         <div class="row">
 
@@ -202,22 +199,22 @@
                 <img src="https://www.eatwell101.com/wp-content/uploads/2020/06/Tomato-Cucumber-Salad-Recipe-8.jpg" alt="Salad5">
                 <h3>Tomato Cucumber Salad </h3>
                 <p>Tomato Cucumber Salad � Light, cooling, and super refreshing, this tomato cucumber salad is perfect.</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <p class="price">Price: $11.99</p>
+                <button class="add-to-cart" data-name="Tomato Cucumber Salad" data-price="11.99">Add To Cart</button>
             </div>
             <div class="column">
                 <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2022/FruitSalad_Shot4_20.jpg?w=960&h=540&q=82&fm=jpg&fit=crop&dm=1654019861&s=d8235f3ac54714943ed5b1eaf6dd0484" alt="Salad3">
                 <h3>Fruit Salad</h3>
                 <p>Juicy, sweet and oh-so-colorful, there�s nothing like fresh fruit salad! Our favorite fruit salad .</p>
                 <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <button class="add-to-cart" data-name="Tomato Salad" data-price="11.99">Add To Cart</button>
             </div>
             <div class="column">
                 <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/04/green-salad-500x375.jpg" alt="Salad6">
                 <h3>Simple Green Salad</h3>
                 <p>This simple green salad is light, refreshing, and delicious! It's a perfect side salad.</p>
                 <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <button class="add-to-cart" data-name="Sinple Green Salad" data-price="11.99">Add To Cart</button>
             </div>
             <div class="column">
                 <img src="https://www.onceuponachef.com/images/2019/07/Big-Italian-Salad-760x983.jpg" alt="Salad1">
@@ -248,32 +245,50 @@
         // Get the cart button and items added to cart count
         const cartButton = document.getElementById('cartButton');
         let itemsInCart = 0;
+        let cartItems = []; // Array to store cart items
 
         // Function to update the cart button text
         function updateCartButton() {
             cartButton.textContent = `Cart (${itemsInCart})`;
             if (itemsInCart > 0) {
-                cartButton.addEventListener('click', redirectToOrderPage);
+                cartButton.addEventListener('click', redirectToCheckoutPage);
             } else {
-                cartButton.removeEventListener('click', redirectToOrderPage);
+                cartButton.removeEventListener('click', redirectToCheckoutPage);
             }
         }
 
         // Function to handle click on the Add to Cart button
-        function addToCart() {
+        function addToCart(event) {
+            const button = event.target;
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            const itemImage = button.getAttribute('data-image');
+
             itemsInCart++;
+            cartItems.push({
+                name: itemName,
+                price: itemPrice
+            });
+
             updateCartButton();
         }
 
         // Function to handle click on the Remove button
         function removeFromCart() {
             itemsInCart = 0;
+            cartItems = [];
             updateCartButton();
         }
 
-        // Function to redirect to orderpage.php
-        function redirectToOrderPage() {
-            window.location.href = 'orderpage.php';
+        // Function to redirect to checkout.php
+        function redirectToCheckoutPage() {
+            const url = new URL('http://localhost/project/checkout.php');
+            url.searchParams.append('itemsInCart', itemsInCart);
+            cartItems.forEach(item => {
+                url.searchParams.append('itemName[]', item.name);
+                url.searchParams.append('itemPrice[]', item.price);
+            });
+            window.location.href = url;
         }
 
         // Add event listeners to Add to Cart buttons
@@ -285,6 +300,8 @@
         // Add event listener to the Remove button
         document.getElementById('removeButton').addEventListener('click', removeFromCart);
     </script>
+
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Get the ID from the URL parameters
