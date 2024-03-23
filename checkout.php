@@ -2,7 +2,46 @@
 <html lang="en">
 
 <head>
-    <!-- Head content -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Example styling for the checkout button */
+        .checkout-btn {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Example hover effect for the button */
+        .checkout-btn:hover {
+            background-color: #45a049;
+            /* Darker green */
+        }
+    </style>
 </head>
 
 <body>

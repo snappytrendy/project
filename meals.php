@@ -221,21 +221,21 @@
                 <h3>Big Italian Salad</h3>
                 <p>This Italian salad pairs nicely with Italian comfort food. You�ll love the dressing!.</p>
                 <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <button class="add-to-cart" data-name="" data-price="">Add To Cart</button>
             </div>
             <div class="column">
                 <img src="images/salad1.jpg" alt="Salad4">
                 <h3>Pasta Salad</h3>
                 <p>This pasta salad uses tri-colored spiral pasta, crunchy bell peppers, tomatoes, and an easy dressing.</p>
                 <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <button class="add-to-cart" data-name="" data-price="">Add To Cart</button>
             </div>
             <div class="column">
                 <img src="https://spicecravings.com/wp-content/uploads/2022/05/Strawberry-Spinach-Salad-Featured.jpg" alt="Salad2">
                 <h3> Cajun Chicken Salad</h3>
                 <p>Easy recipe for Cajun Chicken Salad with homemade balsamic dressing. A healthy low-carb meal.</p>
                 <p>Price: $11.99</p>
-                <button class="add-to-cart">Add To Cart</button>
+                <button class="add-to-cart" data-price="" data-name="">Add To Cart</button>
             </div>
         </div>
     </section>
