@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name"viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <link rel="StyleSheet" href="stylesheet1.css" />
     <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
     <meta charset="utf-8">
@@ -18,44 +19,49 @@
             color: white;
             padding: 20px;
             text-align: center;
-            opacity: 1.5; /* Note: Opacity should be a value between 0 and 1 */
+            opacity: 1.5;
+            /* Note: Opacity should be a value between 0 and 1 */
         }
 
         @media screen and (max-width: 600px) {
             body {
-                background-size: cover; /* Cover the entire background */
-                background-position: center; /* Center the background image */
-                background-repeat: no-repeat; /* Prevent background image from repeating */
+                background-size: cover;
+                /* Cover the entire background */
+                background-position: center;
+                /* Center the background image */
+                background-repeat: no-repeat;
+                /* Prevent background image from repeating */
             }
         }
     </style>
 
 </head>
+
 <body>
-<nav class="navbar">
-    <div class="navdiv">
-        <div class="logo">  
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
-         </div>
-         <div class="title">
-            <h2> MUNCHMEALS CAFE</h2>
-    </div>
-        <ul>
-            <li><a href="http://localhost/project/homepage.php">Home</a></li>
-            <li><a href="http://localhost/project/aboutpage.php">About</a></li>
-            <li><a href="http://localhost/project/contact%20page.php">Contacts</a></li>
-            <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
+            </div>
+            <div class="title">
+                <h2> MUNCHMEALS CAFE</h2>
+            </div>
+            <ul>
+                <li><a href="http://localhost/project/homepage.php">Home</a></li>
+                <li><a href="http://localhost/project/aboutpage.php">About</a></li>
+                <li><a href="http://localhost/project/contact%20page.php">Contacts</a></li>
+                <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
+            </ul>
     </nav>
     <div class="tab">
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search...">
-                <button id="search-btn">Search</button>
-            </div>
-            <a href="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552_1280.jpg" class="cart-icon">
-                <img src="cart-icon.png" alt="Cart">
-            </a>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button id="search-btn">Search</button>
         </div>
+        <a href="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552_1280.jpg" class="cart-icon">
+            <img src="cart-icon.png" alt="Cart">
+        </a>
+    </div>
     <h1>Contact Us</h1>
 
     <div class="contact-info">
@@ -108,4 +114,5 @@
 
 
 </body>
+
 </html>

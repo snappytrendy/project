@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8" />
-    <meta name"viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="StyleSheet1.css" />
     <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
     <meta charset="utf-8">
@@ -12,15 +13,15 @@
     <title>OUR MENU</title>
     <style>
         body {
-            background-image: url(); 
+            background-image: url();
             background-color: #808080;
-            background-size: 100%, 50%; 
-            background-position: top; 
-            background-repeat: no-repeat; 
-            color: white; 
-            padding: 20px; 
-            text-align: center; 
-            opacity: 1.0; 
+            background-size: 100%, 50%;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            opacity: 1.0;
         }
     </style>
     <div class="category category6">
