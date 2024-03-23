@@ -18,6 +18,7 @@
             font-family: "Lato", sans-serif;
             font-style: normal;
         }
+
         body {
             background-image: url(https://img.freepik.com/free-photo/fresh-colourful-ingredients-mexican-cuisine_23-2148254294.jpg);
             /* background-color: white; */
@@ -29,6 +30,11 @@
             text-align: center;
             opacity: 1.5;
             backdrop-filter: blur(5px);
+        }
+
+        .login {
+            position: relative;
+            right: 10px;
         }
     </style>
 
@@ -50,9 +56,9 @@
                 <li><a href="http://localhost/project/contact%20page.php">Contacts</a></li>
                 <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
             </ul>
-            <ul>
-                <a href="http://localhost/project/signup.php">Sign Up</a>
-                <a href="http://localhost/project/login.php">Login</a>
+            <ul class="login">
+                <li><a href="http://localhost/project/signup.php">Sign Up</a></li>
+                <li><a href="http://localhost/project/login.php">Login</a></li>
             </ul>
 
         </div>
