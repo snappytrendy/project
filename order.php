@@ -19,11 +19,6 @@
 <?php
             // Include database connection
             include 'config.php';
-        
-           $sql = "SELECT * FROM orders";
-           $result = $conn->query($sql);
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
