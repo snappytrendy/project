@@ -19,6 +19,10 @@
 <?php
             // Include database connection
             include 'config.php';
+            // Query to retrieve categories
+            $sql = "SELECT * FROM ";orders
+            $result = $conn->query($sql);
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
