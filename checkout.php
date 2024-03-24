@@ -2,46 +2,17 @@
 <html lang="en">
 
 <head>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Example styling for the checkout button */
-        .checkout-btn {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        /* Example hover effect for the button */
-        .checkout-btn:hover {
-            background-color: #45a049;
-            /* Darker green */
-        }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="StyleSheet" href="stylesheet1.css" />
+    <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNCHMEALS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -73,21 +44,7 @@
             </tbody>
         </table>
         <a href="#" class="checkout-btn">Proceed to Checkout</a>
-        <form class="order-form" action="process_order.php" method="post">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="special_requests">Special Requests:</label>
-            <textarea id="special_requests" name="special_requests"></textarea>
-            <br>
-            <label for="payment_method">Payment Method:</label>
-            <select id="payment_method" name="payment_method">
-                <option value="cash">Cash</option>
-            </select>
-            <br>
-            <input type="submit" value="Place Order">
-            <a href="logout.php" class="logout-btn">Logout</a>
-        </form>
+        <?php include 'order.php'; ?>
     </div>
     <script>
         document.querySelector('.checkout-btn').addEventListener('click', function() {
