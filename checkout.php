@@ -34,7 +34,29 @@
             </tbody>
         </table>
         <a href="#" class="checkout-btn">Proceed to Checkout</a>
+        <form class="order-form" action="process_order.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="special_requests">Special Requests:</label>
+            <textarea id="special_requests" name="special_requests"></textarea>
+            <br>
+            <label for="payment_method">Payment Method:</label>
+            <select id="payment_method" name="payment_method">
+                <option value="cash">Cash</option>
+            </select>
+            <br>
+            <input type="submit" value="Place Order">
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </form>
     </div>
+    <script>
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            document.querySelector('.order-form').style.display = 'block';
+        });
+    </script>
+    </div>
+
 </body>
 
 </html>
