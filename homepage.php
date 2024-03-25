@@ -66,44 +66,47 @@
                 <h1> Enjoy <span> Quality Taste</span> in your meal.</h1>
             </div>
     </div>
-<div class="browse">
-        <h2>Browse by Category:</h2>
-        <div class="category-list">
-            <?php
-            // Include database connection
-            include 'config.php';
+    <div class="browse">
+    <h2>Browse by Category:</h2>
+    <div class="category-list">
+        <?php
+        // Include database connection
+        include 'config.php';
 
-            // Query to retrieve categories
-            $sql = "SELECT * FROM categories";
-            $result = $conn->query($sql);
+        // Query to retrieve categories
+        $sql = "SELECT * FROM categories";
+        $result = $conn->query($sql);
 
-            // Display categories as images with links
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="category-card">';
-                    echo '<a href="meals.php?id=' . $row['id'] . '">';
-                    echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
-                    echo '<div class="category-overlay">';
-                    echo '<div class="category-name">' . $row['name'] . '</div>';
+        // Display categories as images with links
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Start container with overlay effect
+                echo '<div class="container">';
+                echo '<a href="meals.php?id=' . $row['id'] . '">';
+                echo '<img class="image" src="' . $row['image'] . '" alt="' . $row['name'] . '">';
 
-                    // Check if 'description' exists in the $row array
-                    if (isset($row['description'])) {
-                        echo '<div class="category-description">' . $row['description'] . '</div>';
-                    }
+                // Overlay with category name and description
+                echo '<div class="overlay">';
+                echo '<div class="category-name">' . $row['name'] . '</div>';
 
-                    echo '</div>'; // Close .category-overlay
-                    echo '</a>';
-                    echo '</div>'; // Close .category-card
+                // Check if 'description' exists in the $row array
+                if (isset($row['description'])) {
+                    echo '<div class="category-description">' . $row['description'] . '</div>';
                 }
-            } else {
-                echo 'No categories found.';
+
+                echo '</div>'; // Close .overlay
+                echo '</a>';
+                echo '</div>'; // Close .container
             }
+        } else {
+            echo 'No categories found.';
+        }
 
-            // Close database connection
-            $conn->close();
-            ?>
-        </div>
+        // Close database connection
+        $conn->close();
+        ?>
     </div>
-</body>
-
-</html>
+</div>
+    </body>
+    </html>
+    

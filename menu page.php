@@ -28,7 +28,7 @@
             opacity: 1.0;
         }
      </style>
-     
+
 </head>
 
 <body>
@@ -65,7 +65,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="category-card">';
-                echo '<a href="category.php?id=' . $row['id'] . '">';
+                echo '<a href="meals.php?id=' . $row['id'] . '">';
                 echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
                 echo '<div class="category-overlay">';
                 echo '<div class="category-name">' . $row['name'] . '</div>';

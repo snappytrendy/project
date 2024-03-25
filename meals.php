@@ -34,8 +34,11 @@
     <section class="breakfast" id="1">
         <div class="food-tag">Breakfast Section</div>
         <!-- Cart button to display the number of items added -->
-        <button id="removeButton">Clear Cart</button>
-        <button class="cart-button" id="cartButton">Cart (0)</button>
+        <div class="cart-buttons-container">
+    <button class="cart-button" id="cartButton">Cart (0)</button>
+    <button class="remove-cart-button" id="removeButton">Remove from Cart</button>
+</div>
+
 
         <div class="row">
             <?php
@@ -246,65 +249,94 @@
     </section>
 
     <script>
-        // JavaScript code remains the same
-        // Get the cart button and items added to cart count
-        const cartButton = document.getElementById('cartButton');
-        let itemsInCart = 0;
-        let cartItems = []; // Array to store cart items
+    const cartButton = document.getElementById('cartButton');
+    let itemsInCart = 0;
+    let cartItems = []; // Array to store cart items
 
-        // Function to update the cart button text
-        function updateCartButton() {
-            cartButton.textContent = `Cart (${itemsInCart})`;
-            if (itemsInCart > 0) {
-                cartButton.addEventListener('click', redirectToCheckoutPage);
-            } else {
-                cartButton.removeEventListener('click', redirectToCheckoutPage);
-            }
+    // Function to update the cart button text
+    function updateCartButton() {
+        cartButton.textContent = `Cart (${itemsInCart})`;
+        if (itemsInCart > 0) {
+            cartButton.addEventListener('click', redirectToCheckoutPage);
+        } else {
+            cartButton.removeEventListener('click', redirectToCheckoutPage);
         }
+    } 
 
-        // Function to handle click on the Add to Cart button
-        function addToCart(event) {
-            const button = event.target;
-            const itemName = button.getAttribute('data-name');
-            const itemPrice = button.getAttribute('data-price');
-            const itemImage = button.getAttribute('data-image');
+    // Function to display notification
+    // Function to display notification
+function displayNotification(message) {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.classList.add('notification', 'show');
+    document.body.appendChild(notification);
 
-            itemsInCart++;
-            cartItems.push({
-                name: itemName,
-                price: itemPrice
-            });
+    // Remove the notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+        setTimeout(() => {
+            notification.remove();
+        }, 500); // Wait for the transition to complete before removing the element
+    }, 3000);
+}
 
-            updateCartButton();
-        }
 
-        // Function to handle click on the Remove button
-        function removeFromCart() {
-            itemsInCart = 0;
-            cartItems = [];
-            updateCartButton();
-        }
+    // Function to handle click on the Add to Cart button
+    function addToCart(event) {
+        const button = event.target;
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+        const itemImage = button.getAttribute('data-image');
 
-        // Function to redirect to checkout.php
-        function redirectToCheckoutPage() {
-            const url = new URL('http://localhost/project/checkout.php');
-            url.searchParams.append('itemsInCart', itemsInCart);
-            cartItems.forEach(item => {
-                url.searchParams.append('itemName[]', item.name);
-                url.searchParams.append('itemPrice[]', item.price);
-            });
-            window.location.href = url;
-        }
-
-        // Add event listeners to Add to Cart buttons
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', addToCart);
+        itemsInCart++;
+        cartItems.push({
+            name: itemName,
+            price: itemPrice
         });
 
-        // Add event listener to the Remove button
-        document.getElementById('removeButton').addEventListener('click', removeFromCart);
-    </script>
+        updateCartButton();
+
+        displayNotification(itemName + ' added to cart.');
+    }
+
+    // Function to handle click on the Remove button
+    function removeFromCart(event) {
+        // Check if cart is not empty
+        if (itemsInCart > 0) {
+            // Remove the last item from the cart
+            cartItems.pop();
+            // Decrease the number of items in cart by 1
+            itemsInCart--;
+            // Update the cart button text
+            updateCartButton();
+            
+            // Display notification for item removed
+            displayNotification('Item removed from cart.');
+        }
+    }
+
+    // Function to redirect to checkout.php
+    function redirectToCheckoutPage() {
+        const url = new URL('http://localhost/project/checkout.php');
+        url.searchParams.append('itemsInCart', itemsInCart);
+        cartItems.forEach(item => {
+            url.searchParams.append('itemName[]', item.name);
+            url.searchParams.append('itemPrice[]', item.price);
+        });
+        window.location.href = url;
+    }
+
+    // Add event listeners to Add to Cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    // Add event listener to the Remove button
+    document.getElementById('removeButton').addEventListener('click', removeFromCart);
+</script>
+
 
 
     <script>
