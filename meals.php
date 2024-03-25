@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <link rel="StyleSheet" href="stylesheet1.css" />
     <link rel="shortcut icon icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OUR MENU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>OUR CATEGORIES</title>
     <style>
         body {
             background-image: url();
@@ -23,131 +27,131 @@
             opacity: 1.0;
         }
 
-        /* Container for the whole page */
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        /* Style for the heading */
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+/* Style for the heading */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .row {
-            /* Clear floats after each row */
-            clear: both;
-            padding: 20px;
-            /* Ensure proper layout */
-        }
+.row {
+    /* Clear floats after each row */
+    clear: both;
+    padding: 20px;
+    /* Ensure proper layout */
+}
 
-        .column {
-            /* Each item takes up 1/3 of the width */
-            width: calc(33.33% - 10px);
-            /* Subtracting padding to avoid wrapping issues */
-            float: left;
-            padding: 5px;
-            box-sizing: border-box;
-            /* Include padding in width calculation */
-            height: 400px;
-        }
+.column {
+    /* Each item takes up 1/3 of the width */
+    width: calc(33.33% - 10px);
+    /* Subtracting padding to avoid wrapping issues */
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    height: 400px;
+}
 
-        /* Style for the image */
-        .column img {
-            width: 100%;
-            /* Ensure images take the full width of the container */
-            height: 200px;
-            /* Maintain aspect ratio */
-            display: block;
-            object-fit: cover;
-        }
+/* Style for the image */
+.column img {
+    width: 100%;
+    /* Ensure images take the full width of the container */
+    height: 200px;
+    /* Maintain aspect ratio */
+    display: block;
+    object-fit: cover;
+}
 
-        /* Style for the text overlay */
-        .text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+/* Style for the text overlay */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        /* Show text overlay on hover */
-        .column:hover .text-overlay {
-            opacity: 1;
-        }
+/* Show text overlay on hover */
+.column:hover .text-overlay {
+    opacity: 1;
+}
 
-        /* Style for the Add to Cart button */
-        .add-to-cart {
-            display: block;
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-        }
+/* Style for the Add to Cart button */
+.add-to-cart {
+    display: block;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
 
-        .add-to-cart:hover {
-            background-color: #45a049;
-        }
+.add-to-cart:hover {
+    background-color: #45a049;
+}
 
-        /* Style for the cart button */
-        #removeButton,
-        .cart-button {
-            position: fixed;
-            top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 999;
-            /* Ensure the buttons are on top */
-        }
+/* Style for the cart button */
+#removeButton,
+.cart-button {
+    position: fixed;
+    top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 999;
+    /* Ensure the buttons are on top */
+}
 
-        #removeButton {
-            left: 20px;
-        }
+#removeButton {
+    left: 20px;
+}
 
-        .cart-button {
-            right: 38px;
-        }
+.cart-button {
+    right: 38px;
+}
 
-        /* Adjustments for the "Clear Cart" button */
-        .cart-button {
-            right: 20px;
-        }
+/* Adjustments for the "Clear Cart" button */
+.cart-button {
+    right: 20px;
+}
 
-        @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-            /* Adjust the position of the buttons for smaller screens */
-            #removeButton,
-            .cart-button {
-                top: 10px;
-            }
-        }
+    /* Adjust the position of the buttons for smaller screens */
+    #removeButton,
+    .cart-button {
+        top: 10px;
+    }
+}
 
-        .food-tag {
-            position: relative;
-            padding: 13px;
-            top: 12px;
-            background-color: #000;
-        }
-    </style>
+.food-tag {
+    position: relative;
+    padding: 13px;
+    top: 12px;
+    background-color: #800080; /* Purple color */
+}
+</style>
 
 <body>
     <!-- Breakfast Section -->
@@ -194,50 +198,175 @@
     <section class="salads" id="2">
         <div class="food-tag">Salad Section</div>
         <div class="row">
+        <?php
+            // Include database connection
+            include 'config.php';
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-            <div class="column">
-                <img src="https://www.eatwell101.com/wp-content/uploads/2020/06/Tomato-Cucumber-Salad-Recipe-8.jpg" alt="Salad5">
-                <h3>Tomato Cucumber Salad </h3>
-                <p>Tomato Cucumber Salad � Light, cooling, and super refreshing, this tomato cucumber salad is perfect.</p>
-                <p class="price">Price: $11.99</p>
-                <button class="add-to-cart" data-name="Tomato Cucumber Salad" data-price="11.99">Add To Cart</button>
-            </div>
-            <div class="column">
-                <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2022/FruitSalad_Shot4_20.jpg?w=960&h=540&q=82&fm=jpg&fit=crop&dm=1654019861&s=d8235f3ac54714943ed5b1eaf6dd0484" alt="Salad3">
-                <h3>Fruit Salad</h3>
-                <p>Juicy, sweet and oh-so-colorful, there�s nothing like fresh fruit salad! Our favorite fruit salad .</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart" data-name="Tomato Salad" data-price="11.99">Add To Cart</button>
-            </div>
-            <div class="column">
-                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/04/green-salad-500x375.jpg" alt="Salad6">
-                <h3>Simple Green Salad</h3>
-                <p>This simple green salad is light, refreshing, and delicious! It's a perfect side salad.</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart" data-name="Sinple Green Salad" data-price="11.99">Add To Cart</button>
-            </div>
-            <div class="column">
-                <img src="https://www.onceuponachef.com/images/2019/07/Big-Italian-Salad-760x983.jpg" alt="Salad1">
-                <h3>Big Italian Salad</h3>
-                <p>This Italian salad pairs nicely with Italian comfort food. You�ll love the dressing!.</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart" data-name="" data-price="">Add To Cart</button>
-            </div>
-            <div class="column">
-                <img src="images/salad1.jpg" alt="Salad4">
-                <h3>Pasta Salad</h3>
-                <p>This pasta salad uses tri-colored spiral pasta, crunchy bell peppers, tomatoes, and an easy dressing.</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart" data-name="" data-price="">Add To Cart</button>
-            </div>
-            <div class="column">
-                <img src="https://spicecravings.com/wp-content/uploads/2022/05/Strawberry-Spinach-Salad-Featured.jpg" alt="Salad2">
-                <h3> Cajun Chicken Salad</h3>
-                <p>Easy recipe for Cajun Chicken Salad with homemade balsamic dressing. A healthy low-carb meal.</p>
-                <p>Price: $11.99</p>
-                <button class="add-to-cart" data-price="" data-name="">Add To Cart</button>
-            </div>
-        </div>
+
+        $sql = "SELECT * FROM salad";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class='salad'>";
+                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+                echo "<h3>" . $row["name"] . "</h3>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<p>Price: $" . $row["price"] . "</p>";
+                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+    </div>
+    </section>
+
+    <!-- fastfood Section -->
+    <section class="fastfood" id="3">
+        <div class="food-tag">Fastfood Section</div>
+        <div class="row">
+        <?php
+            // Include database connection
+            include 'config.php';
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            
+            $sql = "SELECT * FROM fast_foods";
+            $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class='fastfood'>";
+                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+                echo "<h3>" . $row["name"] . "</h3>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<p>Price: $" . $row["price"] . "</p>";
+                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+    </div>
+    </section>
+
+    <!-- drinks Section -->
+    <section class="drinks" id="4">
+        <div class="food-tag">Drinks Section</div>
+        <div class="row">
+        <?php
+            // Include database connection
+            include 'config.php';
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            
+            $sql = "SELECT * FROM drinks";
+            $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class='drinks'>";
+                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+                echo "<h3>" . $row["name"] . "</h3>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<p>Price: $" . $row["price"] . "</p>";
+                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+    </div>
+    </section>
+
+    <!-- mainmeals Section -->
+    <section class="mainmeals" id="5">
+        <div class="food-tag">Mainmeals Section</div>
+        <div class="row">
+        <?php
+            // Include database connection
+            include 'config.php';
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            
+            $sql = "SELECT * FROM main_meals";
+            $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class='mainmeals'>";
+                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+                echo "<h3>" . $row["name"] . "</h3>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<p>Price: $" . $row["price"] . "</p>";
+                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+    </div>
+    </section>
+
+    <!-- dessert Section -->
+    <section class="dessert" id="6">
+        <div class="food-tag">Dessert Section</div>
+        <div class="row">
+        <?php
+            // Include database connection
+            include 'config.php';
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            
+            $sql = "SELECT * FROM desserts";
+            $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class='dessert'>";
+                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+                echo "<h3>" . $row["name"] . "</h3>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<p>Price: $" . $row["price"] . "</p>";
+                echo "<button class='add-to-cart'data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+    </div>
     </section>
 
     <script>
