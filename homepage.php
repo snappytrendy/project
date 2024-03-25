@@ -63,129 +63,20 @@
 
         </div>
     </nav>
-    <style>
-        .search-cart-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f2f2f2;
-            padding: 10px 0;
-        }
-
-        .search-container {
-            text-align: center;
-        }
-
-        #search-input {
-            padding: 10px;
-            width: 500px;
-            /* Adjust width as needed */
-            height: 50px;
-        }
-
-        #search-btn {
-            padding: 10px 20px;
-            background-color: green;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #search-btn:hover {
-            background-color: rgb(255, 106, 0);
-        }
-
-        .cart-icon {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            margin-left: 20px;
-            /* Adjust margin as needed */
-        }
-
-        .cart-icon img {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <div class="search-container">
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Search..." name="search">
+        <button type="submit">Search</button>
+    </form>
+</div>
 
     <div class="home">
         <div class="main_slide">
             <div>
                 <h1> Enjoy <span> Quality Taste</span> in your meal.</h1>
             </div>
-        </div>
-        <style>
-            .category-container {
-                display: flex;
-                flex-wrap: nowrap;
-                /* Prevent wrapping onto multiple lines */
-                overflow-x: auto;
-                /* Enable horizontal scrolling */
-                gap: 20px;
-                /* Add space between items */
-                padding-bottom: 20px;
-                /* Add some space at the bottom */
-            }
-
-            /* make the images display in flex */
-            .category-list {
-                display: flex;
-                /* width: 100%; */
-                /* height: 100%; */
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-                align-content: center;
-            }
-
-            .category-card {
-                position: relative;
-                width: 550px;
-                height: 350px;
-                overflow: hidden;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 15px;
-            }
-
-            .category-card img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.3s ease;
-            }
-
-            .category-card:hover img {
-                transform: scale(1.1);
-            }
-
-            .category-overlay {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.5);
-                color: #fff;
-                padding: 10px;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            .category-card:hover .category-overlay {
-                opacity: 1;
-            }
-
-            .category-name {
-                font-size: 25px;
-                font-weight: bold;
-            }
-
-            .category-description {
-                font-size: 20px;
-            }
-        </style>
+    </div>
+<div class="browse">
         <h2>Browse by Category:</h2>
         <div class="category-list">
             <?php

@@ -56,15 +56,7 @@
                 <li><a href="http://localhost/project/menu%20page.php">Our Menu</a></li>
             </ul>
     </nav>
-    <div class="tab">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button id="search-btn">Search</button>
-        </div>
-        <a href="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552_1280.jpg" class="cart-icon">
-            <img src="cart-icon.png" alt="Cart">
-        </a>
-    </div>
+    
     <h1>Contact Us</h1>
 
     <div class="contact-info">
