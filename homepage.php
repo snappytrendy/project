@@ -18,8 +18,7 @@
             font-family: "Lato", sans-serif;
             font-style: normal;
         }
-
-        body {
+        .body {
             background-image: url(https://img.freepik.com/free-photo/fresh-colourful-ingredients-mexican-cuisine_23-2148254294.jpg);
             /* background-color: white; */
             background-size: 100% 50%;
@@ -32,10 +31,7 @@
             backdrop-filter: blur(5px);
         }
 
-        .login {
-            position: relative;
-            right: 10px;
-        }
+
     </style>
 
 </head>
@@ -63,13 +59,7 @@
 
         </div>
     </nav>
-    <div class="search-container">
-    <form action="/search" method="GET">
-        <input type="text" placeholder="Search..." name="search">
-        <button type="submit">Search</button>
-    </form>
-</div>
-
+>
     <div class="home">
         <div class="main_slide">
             <div>

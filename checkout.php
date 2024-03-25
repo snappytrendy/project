@@ -81,10 +81,7 @@
             include 'config.php'; 
             $sql = "INSERT INTO orders (email, special_requests, payment_method, total_amount) VALUES ('$email', '$special_requests', '$payment_method', $total_amount)"; 
             if ($conn->query($sql) === TRUE) { 
-                echo "<div class='notification'> 
-                    <p>Order placed successfully!</p> 
-                    <button id='logout-btn' onclick='window.close()'>Logout and Close</button> 
-                </div>"; 
+                
             } else { 
                 echo "Error: " . $sql . "<br>" . $conn->error; 
             } 
@@ -92,6 +89,8 @@
         } 
         ?> 
     </div> 
+    <button id="logout-btn" onclick="logoutAndRedirect()">Logout</button>
+
     <script> 
         document.getElementById('show-form').addEventListener('click', function () { 
             document.querySelector('.form-container').style.display = 'block'; 
@@ -114,6 +113,22 @@
             xhr.send('total_amount=' + total_amount + '&email=' + email + '&special_requests=' + special_requests + '&payment_method=' + payment_method); 
         }); 
 
+        function showNotification(message) {
+            alert(message);
+        }
+
+        function logoutAndRedirect() {
+    window.location.href = 'logout.php'; // Replace 'logout.php' with the URL of your logout page
+}
+
+
+        // Event listener for the order form submission
+        document.getElementById('order-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            // Your form submission logic here
+            // After successful submission, call the showNotification function
+            showNotification('Order placed successfully!');
+        });
     </script> 
     
 
