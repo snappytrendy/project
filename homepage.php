@@ -38,7 +38,7 @@
 
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
         <div class="navdiv">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
@@ -56,7 +56,7 @@
                 <li><a href="http://localhost/project/signup.php">Sign Up</a></li>
                 <li><a href="http://localhost/project/login.php">Login</a></li>
             </ul>
-
+    </div>
         </div>
     </nav>
 >
@@ -109,4 +109,3 @@
 </div>
     </body>
     </html>
-    

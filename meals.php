@@ -30,15 +30,15 @@
         </style>
 
 <body>
-    <!-- Breakfast Section -->
-    <section class="breakfast" id="1">
-        <div class="food-tag">Breakfast Section</div>
+
         <!-- Cart button to display the number of items added -->
         <div class="cart-buttons-container">
     <button class="cart-button" id="cartButton">Cart (0)</button>
     <button class="remove-cart-button" id="removeButton">Remove from Cart</button>
-</div>
-
+    </div>
+<!-- Breakfast Section -->
+<section class="breakfast" id="1">
+        <div class="food-tag">Breakfast Section</div>
 
         <div class="row">
             <?php
@@ -76,8 +76,10 @@
     <!-- Salads Section -->
     <section class="salads" id="2">
         <div class="food-tag">Salad Section</div>
+
+
         <div class="row">
-        <?php
+            <?php
             // Include database connection
             include 'config.php';
             // Check connection
@@ -85,27 +87,28 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
+            
+            $sql = "SELECT * FROM salad";
+            $result = $conn->query($sql);
 
-        $sql = "SELECT * FROM salad";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='salad'>";
-                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
-                echo "<h3>" . $row["name"] . "</h3>";
-                echo "<p>" . $row["description"] . "</p>";
-                echo "<p>Price: $" . $row["price"] . "</p>";
-                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
-                echo "</div>";
+            
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='column'>";
+                    echo "<h3>" . $row["name"] . "</h3>";
+                    echo "<p>Description: " . $row["description"] . "</p>";
+                    echo "<p>Price: $" . $row["price"] . "</p>";
+                    echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "' style='max-width: 100%;'>";
+                    echo "<button class='add-to-cart' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "' data-image='" . $row["image_url"] . "'>Add to Cart</button>";
+                    echo "</div>";
+                }
+            } else {
+                echo "0 results";
             }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-        ?>
-    </div>
+
+            $conn->close();
+            ?>
+        </div>
     </section>
 
     <!-- fastfood Section -->
