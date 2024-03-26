@@ -58,7 +58,7 @@
     </div>
         </div>
     </nav>
->
+
     <div class="home">
         <div class="main_slide">
             <div>
@@ -101,66 +101,8 @@
 
 
         ?>
-
-<script>
-function addToCart(itemId) {
-    // Implement your logic to add the item to the cart
-    alert('Item added to cart. Implement your logic here.');
-}
-</script>
-<style>
-/* Style for special item container */
-.special {
-    display: inline-block;
-    width: 300px; /* Adjust width as needed */
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-/* Style for special item image */
-.special img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Style for special item name */
-.special h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-/* Style for special item description */
-.special p {
-    font-size: 14px;
-    margin: 10px 0;
-}
-
-/* Style for special item price */
-.special p.price {
-    font-weight: bold;
-}
-
-/* Style for "Add to Cart" button */
-.special button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-/* Hover effect for "Add to Cart" button */
-.special button:hover {
-    background-color: #45a049;
-}
-</style>
-</div>
-
+       
+       
     </body>
 
     </html>

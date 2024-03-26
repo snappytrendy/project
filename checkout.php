@@ -21,7 +21,7 @@
         .form-container select { width: 100%; }
         .form-container input[type="submit"] { margin-top: 10px; }
         .notification { padding: 20px; background-color: #4CAF50; color: white; margin-bottom: 15px; display: none; } 
-    </style>
+   </style>
 
 </head> 
 <body> 
@@ -53,6 +53,7 @@
                     $total_amount = 0; 
                 } 
                 ?> 
+                
             </tbody> 
         </table> 
         <p>Total Amount: $<?php echo $total_amount; ?></p> 
@@ -89,8 +90,15 @@
         } 
         ?> 
     </div> 
+    
     <button id="logout-btn" onclick="logoutAndRedirect()">Logout</button>
-
+    <style>
+    #logout-btn {
+        padding: 5px 10px; /* Adjust padding to decrease button size */
+        font-size: 16px; /* Decrease font size */
+        width:100%;
+    }
+    </style>
     <script> 
         document.getElementById('show-form').addEventListener('click', function () { 
             document.querySelector('.form-container').style.display = 'block'; 
@@ -131,7 +139,30 @@
         });
     </script> 
     
+    <script>
+    // Function to check if the cart is empty
+    function isCartEmpty() {
+        return itemsInCart === 0;
+    }
 
+    // Function to update the "Place Order" button state
+    function updatePlaceOrderButtonState() {
+        const placeOrderButton = document.getElementById('placeOrderButton');
+        if (isCartEmpty()) {
+            placeOrderButton.disabled = true; // Disable the button if cart is empty
+        } else {
+            placeOrderButton.disabled = false; // Enable the button if cart has items
+        }
+    }
+
+    // Initial update when page loads
+    updatePlaceOrderButtonState();
+
+    // Add event listener for changes in the cart
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePlaceOrderButtonState();
+    });
+</script>
 </body>
 
 </html>

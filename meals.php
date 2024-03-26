@@ -95,7 +95,7 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='column'>";
                     echo "<h3>" . $row["name"] . "</h3>";
-                    echo "<p>Description: " . $row["description"] . "</p>";
+                    echo "<p> " . $row["description"] . "</p>";
                     echo "<p>Price: $" . $row["price"] . "</p>";
                     echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "' style='max-width: 100%;'>";
                     echo "<button class='add-to-cart' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "' data-image='" . $row["image_url"] . "'>Add to Cart</button>";
@@ -267,33 +267,51 @@
     <div class="food-tag">Drinks Section</div>
     <div class="series">
     <?php
-        // Include database connection
-        include 'config.php';
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+session_start();
 
-        
-        $sql = "SELECT * FROM drinks";
-        $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "<div class='pillar'>";
-            echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
-            echo "<h3>" . $row["name"] . "</h3>";
-            echo "<p>" . $row["description"] . "</p>";
-            echo "<p>Price: $" . $row["price"] . "</p>";
-            echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
-            echo "</div>";
-        }
-    } else {
-        echo "0 results";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get item information from the form
+    $itemId = $_POST['itemId'];
+    $itemName = $_POST['itemName'];
+    $itemPrice = $_POST['itemPrice'];
+    
+    // Create a new item array
+    $item = array(
+        'id' => $itemId,
+        'name' => $itemName,
+        'price' => $itemPrice,
+        'quantity' => 1 // Initialize quantity to 1
+    );
+    
+    // Check if the cart session variable exists
+    if (!isset($_SESSION['cart'])) {
+        // If not, initialize it as an empty array
+        $_SESSION['cart'] = array();
     }
-    $conn->close();
-    ?>
+    
+    // Check if the item is already in the cart
+    $itemIndex = -1;
+    foreach ($_SESSION['cart'] as $key => $cartItem) {
+        if ($cartItem['id'] == $itemId) {
+            $itemIndex = $key;
+            break;
+        }
+    }
+    
+    if ($itemIndex != -1) {
+        // If the item is already in the cart, increment its quantity
+        $_SESSION['cart'][$itemIndex]['quantity']++;
+    } else {
+        // Otherwise, add the item to the cart
+        array_push($_SESSION['cart'], $item);
+    }
+    
+    // Redirect back to the homepage
+    header("Location: homepage.php");
+    exit();
+}
+?>
+
 </div>
 </section>
 <style>
@@ -642,7 +660,29 @@ function displayNotification(message) {
             }
         });
     </script>
+<style>
+    @media (max-width: 600px) {
+            /* Override common styles for phone screens */
+            body {
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
 
+            /* Specific styles for each section */
+            .food-tag {
+                font-size: 20px; /* Decrease font size for food tags on smaller screens */
+            }
+
+            /* Adjust column width for smaller screens */
+            .column,
+            .columnar,
+            .pillar,
+            .shaft,
+            .vertical {
+                flex-basis: 100%; /* Each item occupies full width on smaller screens */
+            }
+            }
+        
+        </style>
 
 </body>
 

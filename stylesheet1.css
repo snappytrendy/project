@@ -442,51 +442,8 @@ body {
   margin-bottom: 20px;
   width: 250px; /* Adjust width as needed */
 }
-/* Additional styling for form elements */
-/* You can customize this as needed */
 
 
-
-
-.signup-form {
-  /* Add your styles for the sign-up form container */
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.signup-form h2 {
-  margin-bottom: 20px;
-}
-
-.signup-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.signup-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.signup-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.signup-form button:hover {
-  background-color: #0056b3;
-}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -761,31 +718,6 @@ button {
   text-align: center;
   margin-bottom: 10px;
 }
-/* Style for navigation bar */
-.navbarspecial {
-  background-color: purple;
-  color: white;
-  padding: 10px; /* Adjust padding as needed */
-  text-align: center;
-}
-
-.navbarspecial h2 {
-  margin: 0; /* Remove default margin */
-}
-
-/* Style for specials section */
-.specials {
-  background-color: #f5f5f5; /* Light background color */
-  padding: 20px; /* Adjust padding as needed */
-}
-
-.specials h2 {
-  color: purple; /* Title color */
-  margin-top: 0; /* Remove default margin */
-  text-align: center;
-}
-
-
 
 @media screen and (max-width: 992px) {
   .container {
