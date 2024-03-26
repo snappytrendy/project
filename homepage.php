@@ -101,32 +101,6 @@
 
 
         ?>
-         <div class="navbarspecials">
-        <div class="specials">
-    <h2>Specials and Promotion:</h2>
-    <?php
-// Include database connection
-include 'config.php';
-
-// Query to retrieve specials
-$sql = "SELECT * FROM specials";
-$result = $conn->query($sql);
-
-// Display specials with "Add to Cart" button
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo '<div class="special">';
-        echo '<img src="' . $row['image_url'] . '" alt="' . $row['name'] . '">';
-        echo '<h3>' . $row['name'] . '</h3>';
-        echo '<p>' . $row['description'] . '</p>';
-        echo '<p>$' . $row['price'] . '</p>';
-        echo '<button onclick="addToCart(' . $row['id'] . ')">Add to Cart</button>';
-        echo '</div>';
-    }
-} else {
-    echo 'No specials found.';
-}
-?>
 
 <script>
 function addToCart(itemId) {
