@@ -38,7 +38,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoPvbCWfSLiGO6RPrXgNOCPClzqssjjLKeew&usqp=CAU" alt="MunchMeals" class="logo-img">
             </div>
             <div class="title">
-                <h2> MUNCHMEALS CAFE</h2>
+                <h2> OUR MENU</h2>
             </div>
             <ul>
                 <li><a href="http://localhost/project/homepage.php">Home</a></li>
@@ -50,10 +50,13 @@
 
 
     <div class="menu">
-        <h2>Welcome to our menu! 🍽️ Explore our delicious offerings below, organized conveniently by category. Whether you're craving breakfast delights, refreshing drinks, or satisfying main meals, our menu has something for everyone. Simply click on your desired category to discover your favorites. Bon appétit:</h2>
+        <h2>Welcome to our menu! 🍽️ Explore our delicious offerings below, organized conveniently by category. Bon appétit:</h2>
     </div>
-    <div class="category-list">
-        <?php
+    <div class="navbarbrowse">
+    <h2>Browse by Category:</h2>
+</div>
+
+         <?php
         // Include database connection
         include 'config.php';
 
@@ -64,10 +67,10 @@
         // Display categories as images with links
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo '<div class="category-card">';
+                echo '<div class="browse">';
                 echo '<a href="meals.php?id=' . $row['id'] . '">';
                 echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
-                echo '<div class="category-overlay">';
+                echo '<div class="overlay">';
                 echo '<div class="category-name">' . $row['name'] . '</div>';
 
                 // Check if 'description' exists in the $row array
@@ -82,6 +85,7 @@
         } else {
             echo 'No categories found.';
         }
+
 
         ?>
 </body>

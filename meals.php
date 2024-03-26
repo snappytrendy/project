@@ -72,9 +72,8 @@
             ?>
         </div>
     </section>
-
-    <!-- Salads Section -->
-    <section class="salads" id="2">
+  <!-- Salads Section -->
+  <section class="salads" id="2">
         <div class="food-tag">Salad Section</div>
 
 
@@ -110,27 +109,82 @@
             ?>
         </div>
     </section>
+   <style>
+    /* Styles for Salads Section */
+.salads {
+  padding: 20px;
+}
 
-    <!-- fastfood Section -->
-    <section class="fastfood" id="3">
-        <div class="food-tag">Fastfood Section</div>
-        <div class="row">
+.food-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.column {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit three items per row */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.column img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.column h3 {
+  margin-top: 0;
+}
+
+.column p {
+  margin: 5px 0;
+}
+
+.column .add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50; /* Change the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.column .add-to-cart:hover {
+  background-color: #45a049; /* Change the hover background color */
+}
+    </style>
+
+ <!-- fastfood Section -->
+ <section class="fastfoods" id="3">
+    <div class="food-tag">Fastfood Section</div>
+    <div class="line">
         <?php
-            // Include database connection
-            include 'config.php';
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        // Include database connection
+        include 'config.php';
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-            
-            $sql = "SELECT * FROM fast_foods";
-            $result = $conn->query($sql);
+        $sql = "SELECT * FROM fast_foods";
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             // Output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "<div class='fastfood'>";
+                echo "<div class='columnar'>";
                 echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
                 echo "<h3>" . $row["name"] . "</h3>";
                 echo "<p>" . $row["description"] . "</p>";
@@ -144,112 +198,342 @@
         $conn->close();
         ?>
     </div>
-    </section>
+</section>
 
-    <!-- drinks Section -->
-    <section class="drinks" id="4">
-        <div class="food-tag">Drinks Section</div>
-        <div class="row">
-        <?php
-            // Include database connection
-            include 'config.php';
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+    <style>
+    /* Styles for Fast Foods Section */
 
-            
-            $sql = "SELECT * FROM drinks";
-            $result = $conn->query($sql);
+.fastfoods {
+  padding: 20px;
+}
 
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='drinks'>";
-                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
-                echo "<h3>" . $row["name"] . "</h3>";
-                echo "<p>" . $row["description"] . "</p>";
-                echo "<p>Price: $" . $row["price"] . "</p>";
-                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
-                echo "</div>";
-            }
-        } else {
-            echo "0 results";
+.food-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-color:purple;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.columnar {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit three items per row */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.columnar img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.columnar h3 {
+  margin-top: 0;
+}
+
+.columnar p {
+  margin: 5px 0;
+}
+
+.columnar .add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: green; /* Change the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.columnar .add-to-cart:hover {
+  background-color: #E64A19; /* Change the hover background color */
+}
+
+
+</style>
+
+<!-- Drinks Section -->
+<section class="drinks" id="4">
+    <div class="food-tag">Drinks Section</div>
+    <div class="series">
+    <?php
+        // Include database connection
+        include 'config.php';
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        $conn->close();
-        ?>
-    </div>
-    </section>
 
-    <!-- mainmeals Section -->
-    <section class="mainmeals" id="5">
-        <div class="food-tag">Mainmeals Section</div>
-        <div class="row">
-        <?php
-            // Include database connection
-            include 'config.php';
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        
+        $sql = "SELECT * FROM drinks";
+        $result = $conn->query($sql);
 
-            
-            $sql = "SELECT * FROM main_meals";
-            $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='mainmeals'>";
-                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
-                echo "<h3>" . $row["name"] . "</h3>";
-                echo "<p>" . $row["description"] . "</p>";
-                echo "<p>Price: $" . $row["price"] . "</p>";
-                echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
-                echo "</div>";
-            }
-        } else {
-            echo "0 results";
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "<div class='pillar'>";
+            echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+            echo "<h3>" . $row["name"] . "</h3>";
+            echo "<p>" . $row["description"] . "</p>";
+            echo "<p>Price: $" . $row["price"] . "</p>";
+            echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+            echo "</div>";
         }
-        $conn->close();
-        ?>
-    </div>
-    </section>
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+    ?>
+</div>
+</section>
+<style>
+/* Styles for Drinks Section */
+.drinks {
+  padding: 20px;
+}
 
-    <!-- dessert Section -->
-    <section class="dessert" id="6">
-        <div class="food-tag">Dessert Section</div>
-        <div class="row">
-        <?php
-            // Include database connection
-            include 'config.php';
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+.food-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-            
-            $sql = "SELECT * FROM desserts";
-            $result = $conn->query($sql);
+.series {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
 
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='dessert'>";
-                echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
-                echo "<h3>" . $row["name"] . "</h3>";
-                echo "<p>" . $row["description"] . "</p>";
-                echo "<p>Price: $" . $row["price"] . "</p>";
-                echo "<button class='add-to-cart'data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
-                echo "</div>";
-            }
-        } else {
-            echo "0 results";
+.pillar {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit three items per row */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pillar img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.pillar h3 {
+  margin-top: 0;
+}
+
+.pillar p {
+  margin: 5px 0;
+}
+
+.pillar .add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50; /* Change the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pillar .add-to-cart:hover {
+  background-color: #45a049; /* Change the hover background color */
+}
+</style>
+
+<!-- mainmeals Section -->
+<section class="mainmeals" id="5">
+    <div class="food-tag">Mainmeals Section</div>
+    <div class="array">
+    <?php
+        // Include database connection
+        include 'config.php';
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        $conn->close();
-        ?>
-    </div>
-    </section>
+
+        
+        $sql = "SELECT * FROM main_meals";
+        $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "<div class='shaft'>";
+            echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+            echo "<h3>" . $row["name"] . "</h3>";
+            echo "<p>" . $row["description"] . "</p>";
+            echo "<p>Price: $" . $row["price"] . "</p>";
+            echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+            echo "</div>";
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+    ?>
+</div>
+</section>
+<style>
+/* Styles for Main Meals Section */
+.mainmeals {
+  padding: 20px;
+}
+
+.food-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.array {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.shaft {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit three items per row */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shaft img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.shaft h3 {
+  margin-top: 0;
+}
+
+.shaft p {
+  margin: 5px 0;
+}
+
+.shaft .add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50; /* Change the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shaft .add-to-cart:hover {
+  background-color: #45a049; /* Change the hover background color */
+}
+</style>
+
+<!-- Dessert Section -->
+<section class="dessert" id="6">
+    <div class="food-tag">Dessert Section</div>
+    <div class="rank">
+    <?php
+        // Include database connection
+        include 'config.php';
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        
+        $sql = "SELECT * FROM desserts";
+        $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "<div class='vertical'>";
+            echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "'>";
+            echo "<h3>" . $row["name"] . "</h3>";
+            echo "<p>" . $row["description"] . "</p>";
+            echo "<p>Price: $" . $row["price"] . "</p>";
+            echo "<button class='add-to-cart' data-id='" . $row["id"] . "' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "'>Add To Cart</button>";
+            echo "</div>";
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+    ?>
+</div>
+</section>
+<style>
+/* Styles for Dessert Section */
+.dessert {
+  padding: 20px;
+}
+
+.food-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.rank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.vertical {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit three items per row */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vertical img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.vertical h3 {
+  margin-top: 0;
+}
+
+.vertical p {
+  margin: 5px 0;
+}
+
+.vertical .add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50; /* Change the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vertical .add-to-cart:hover {
+  background-color: #45a049; /* Change the hover background color */
+}
+</style>
 
     <script>
     const cartButton = document.getElementById('cartButton');

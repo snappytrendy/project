@@ -119,6 +119,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="submit"]:hover {
             background-color: #555;
         }
+        .form-container {
+            background-color: #fff;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -126,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <section>
-        <h2>Register New Client</h2>
+        <h2>Don't have an account sign up !</h2>
 
         <?php
         // Display error message if any
@@ -150,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </section>
 
-
+    
 </body>
 
 </html>

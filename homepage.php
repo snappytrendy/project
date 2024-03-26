@@ -30,9 +30,8 @@
             opacity: 1.5;
             backdrop-filter: blur(5px);
         }
-
-
-    </style>
+    
+</style>
 
 </head>
 
@@ -66,10 +65,11 @@
                 <h1> Enjoy <span> Quality Taste</span> in your meal.</h1>
             </div>
     </div>
-    <div class="browse">
+    <div class="navbarbrowse">
     <h2>Browse by Category:</h2>
-    <div class="category-list">
-        <?php
+</div>
+
+         <?php
         // Include database connection
         include 'config.php';
 
@@ -80,12 +80,9 @@
         // Display categories as images with links
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                // Start container with overlay effect
-                echo '<div class="container">';
+                echo '<div class="browse">';
                 echo '<a href="meals.php?id=' . $row['id'] . '">';
-                echo '<img class="image" src="' . $row['image'] . '" alt="' . $row['name'] . '">';
-
-                // Overlay with category name and description
+                echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
                 echo '<div class="overlay">';
                 echo '<div class="category-name">' . $row['name'] . '</div>';
 
@@ -94,18 +91,102 @@
                     echo '<div class="category-description">' . $row['description'] . '</div>';
                 }
 
-                echo '</div>'; // Close .overlay
+                echo '</div>'; // Close .category-overlay
                 echo '</a>';
-                echo '</div>'; // Close .container
+                echo '</div>'; // Close .category-card
             }
         } else {
             echo 'No categories found.';
         }
 
-        // Close database connection
-        $conn->close();
+
         ?>
-    </div>
+         <div class="navbarspecials">
+        <div class="specials">
+    <h2>Specials and Promotion:</h2>
+    <?php
+// Include database connection
+include 'config.php';
+
+// Query to retrieve specials
+$sql = "SELECT * FROM specials";
+$result = $conn->query($sql);
+
+// Display specials with "Add to Cart" button
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="special">';
+        echo '<img src="' . $row['image_url'] . '" alt="' . $row['name'] . '">';
+        echo '<h3>' . $row['name'] . '</h3>';
+        echo '<p>' . $row['description'] . '</p>';
+        echo '<p>$' . $row['price'] . '</p>';
+        echo '<button onclick="addToCart(' . $row['id'] . ')">Add to Cart</button>';
+        echo '</div>';
+    }
+} else {
+    echo 'No specials found.';
+}
+?>
+
+<script>
+function addToCart(itemId) {
+    // Implement your logic to add the item to the cart
+    alert('Item added to cart. Implement your logic here.');
+}
+</script>
+<style>
+/* Style for special item container */
+.special {
+    display: inline-block;
+    width: 300px; /* Adjust width as needed */
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Style for special item image */
+.special img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Style for special item name */
+.special h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Style for special item description */
+.special p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Style for special item price */
+.special p.price {
+    font-weight: bold;
+}
+
+/* Style for "Add to Cart" button */
+.special button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for "Add to Cart" button */
+.special button:hover {
+    background-color: #45a049;
+}
+</style>
 </div>
+
     </body>
+
     </html>

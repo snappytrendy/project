@@ -616,90 +616,13 @@ button {
 .form-container select {
   width: 100%;
 }
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-.salads {
-  width: 30%;
-  margin-bottom: 20px;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  overflow: hidden;
-}
 
-.salads h3 {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  margin: 0;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-.salads p {
-  padding: 10px;
-  margin: 0;
-}
-
-.salads img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
 
 .menu h2 {
   text-align: center;
   margin-bottom: 20px;
   color: black;
   font-size: bold;
-}
-.food-tag {
-  position: relative;
-  padding: 13px;
-  top: 12px;
-  background-color: purple; /* Corrected the color name */
-  color: white; /* Added text color */
-  font-size: 18px; /* Adjusted font size */
-  font-weight: bold; /* Added font weight */
-  text-transform: uppercase; /* Converted text to uppercase */
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.column {
-  width: 30%;
-  margin-bottom: 20px;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.column h3 {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  margin: 0;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-.column p {
-  padding: 10px;
-  margin: 0;
-}
-
-.column img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 
 .notification {
@@ -775,6 +698,94 @@ button {
   transition: background-color 0.3s ease;
   width:100px;
 }
+/* Style for navigation bar */
+.navbarbrowse {
+  background-color: purple;
+  color: white;
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.navbarbrowse h2 {
+  margin: 0; /* Remove default margin */
+}
+
+/*homepage browse by categories*/
+.browse {
+  position: relative; /* Position relative to enable absolute positioning for overlay */
+  display: inline-block; /* Display categories in a line */
+  margin: 0 5px; /* Adjust margin as needed */
+}
+
+/* Increase image size */
+.browse img {
+  width: 520px; /* Adjust width as needed */
+  height: 220px; /* Maintain aspect ratio */
+  border: 1px solid #ddd; /* Add border for better visualization */
+  margin: 0 15px;
+}
+
+/* Style for overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  color: white; /* Text color on the overlay */
+  opacity: 0; /* Hide overlay by default */
+  transition: opacity 0.3s; /* Smooth transition for hover effect */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for overlay hover effect */
+.browse:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Style for category name */
+.category-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* Style for category description */
+.category-description {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* Style for navigation bar */
+.navbarspecial {
+  background-color: purple;
+  color: white;
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.navbarspecial h2 {
+  margin: 0; /* Remove default margin */
+}
+
+/* Style for specials section */
+.specials {
+  background-color: #f5f5f5; /* Light background color */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.specials h2 {
+  color: purple; /* Title color */
+  margin-top: 0; /* Remove default margin */
+  text-align: center;
+}
+
+
 
 @media screen and (max-width: 992px) {
   .container {
