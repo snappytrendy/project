@@ -736,6 +736,7 @@ button {
     background-color: #45a049;
 }
 
+
 /* Style for the cart button container */
 .cart-buttons-container {
   position: fixed;
@@ -773,63 +774,6 @@ button {
   font-size: 16px;
   transition: background-color 0.3s ease;
   width:100px;
-}
-/* Style for the category list */
-.category-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* Style for each category card */
-.category-card {
-  width: calc(50% - 10px); /* Adjust width to create pairs */
-  margin-bottom: 20px;
-  position: relative;
-}
-
-/* Style for category images */
-.category-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* Style for the overlay */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-}
-
-/* Show overlay on hover */
-.category-card:hover .overlay {
-  opacity: 1;
-}
-
-/* Style for category name */
-.category-name {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Style for category description */
-.category-description {
-  font-size: 14px;
-  text-align: center;
 }
 
 @media screen and (max-width: 992px) {
