@@ -86,6 +86,42 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9275172280595!2d36.88387107372697!3d-1.2107654355456394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3e1013975795%3A0x3c221314e21e827f!2sMirema%20Drive%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1707590253430!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
+    <?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Include database connection code here
+    include 'config.php'; 
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind the SQL statement
+    $stmt = $conn->prepare("INSERT INTO contact_us (name, email, subject, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $subject, $message);
+
+    // Get form data and sanitize input
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
+
+    // Execute the prepared statement
+    if ($stmt->execute() === TRUE) {
+        // Send a success response
+        echo json_encode(array("status" => "success"));
+    } else {
+        // Send an error response
+        echo json_encode(array("status" => "error", "message" => $conn->error));
+    }
+
+    // Close the prepared statement and database connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+
     <div class="contact-form">
         <h2>Send us a Message</h2>
         <form action="submit.php" method="post">
@@ -106,6 +142,35 @@
             </div>
         </form>
     </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        var formData = new FormData(this);
+
+        // Send form data using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "submit.php", true);
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status == "success") {
+                    alert("Your message has been successfully sent!"); // Display success message
+                    document.getElementById("contactForm").reset(); // Reset the form
+                } else {
+                    alert("Error: " + response.message); // Display error message
+                }
+            } else {
+                alert("Error: " + xhr.statusText); // Display error message
+            }
+        };
+        xhr.onerror = function() {
+            alert("Request failed."); // Display error message
+        };
+        xhr.send(formData);
+    });
+});
+</script>
 
 
 </body>
