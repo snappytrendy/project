@@ -98,11 +98,11 @@
         } else {
             echo 'No categories found.';
         }
-
+        
 
         ?>
        
-       
+
     </body>
 
     </html>

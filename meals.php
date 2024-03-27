@@ -50,7 +50,7 @@
             }
 
             // Fetch breakfast items
-            $sql = "SELECT * FROM breakfast_items";
+            $sql = "SELECT * FROM food_items";
             $result = $conn->query($sql);
 
             // Display breakfast items with Add to Cart button
@@ -87,7 +87,7 @@
             }
 
             
-            $sql = "SELECT * FROM salad";
+            $sql = "SELECT * FROM food_items";
             $result = $conn->query($sql);
 
             
@@ -178,7 +178,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "SELECT * FROM fast_foods";
+        $sql = "SELECT * FROM food_items";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -275,7 +275,7 @@
         }
 
         
-        $sql = "SELECT * FROM drinks";
+        $sql = "SELECT * FROM food_items";
         $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -367,7 +367,7 @@
         }
 
         
-        $sql = "SELECT * FROM main_meals";
+        $sql = "SELECT * FROM food_items";
         $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -458,7 +458,7 @@
         }
 
         
-        $sql = "SELECT * FROM desserts";
+        $sql = "SELECT * FROM food_items";
         $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

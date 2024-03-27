@@ -719,6 +719,14 @@ button {
   margin-bottom: 10px;
 }
 
+.card {
+  float: left;
+  width: calc(50% - 15px); /* Adjust as needed */
+  margin-right: 30px; /* Adjust as needed */
+  margin-bottom: 30px; /* Adjust as needed */
+}
+
+
 @media screen and (max-width: 992px) {
   .container {
     width: 75%;
