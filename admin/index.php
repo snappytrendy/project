@@ -1,52 +1,98 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    
+    exit;
+}
+
+ // Include database connection
+ include '../config.php';
+
+// Handle CRUD operations here
+
+// Example: Display list of items
+$query = "(
+    SELECT item_id, item_name, price
+    FROM breakfast
+)
+UNION
+(
+    SELECT item_id, item_name, price
+    FROM salads
+)
+UNION
+(
+    SELECT item_id, item_name, price
+    FROM mainmeals
+    )
+    UNION
+(
+    SELECT item_id, item_name, price
+    FROM fastfood
+    )
+    UNION
+(
+    SELECT item_id, item_name, price
+    FROM dessert
+    )
+    UNION
+(
+    SELECT item_id, item_name, price
+    FROM drinks
+    )
+    UNION
+(
+    SELECT item_id, item_name, price
+    FROM categories
+    
+
+)";
+$result = mysqli_query($conn, $query);
+
+// Add/Edit/Delete operations
+// You can handle CRUD operations here
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Manage Food Items</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheet1.css">
+    <title>Admin Dashboard</title>
 </head>
 <body>
-<div class="container my-5">
-    <h2>Admin Panel - Manage Food Items</h2>
+    <h2>Welcome Admin</h2>
+    <a href="logout.php">Logout</a>
     
-    <a class='btn btn-primary mb-3'  style='padding: 4px; background-color: red' href="add_food_item.php" role="button">Add New Food Item</a>
-    <div class="row">
+    <h3>Items</h3>
+    <table border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
         <?php
-        // Include database connection
-        include '../config.php';
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>{$row['item_id']}</td>";
+            echo "<td>{$row['item_name']}</td>";
+            echo "<td>{$row['price']}</td>";
+            // Add edit/delete links/buttons here
+            echo "<td><a href='edit_item.php?item_id={$row['item_id']}'>Edit</a> | <a href='delete_item.php?item_id={$row['item_id']}'>Delete</a></td>";
+            echo "</tr>";
         }
-
-        // Fetch food items
-        $sql = "SELECT * FROM food_items";
-        $result = $conn->query($sql);
-
-    
-
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='col-md-6'>";
-                echo "<div class='card mb-3'>";
-                echo "<img src='" . $row["image_url"] . "' class='card-img-top' alt='" . $row["name"] . "'>";
-                echo "<div class='card-body'>";
-                echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
-                echo "<p class='card-text'>" . $row["description"] . "</p>";
-                echo "<p class='card-text'>$" . $row["price"] . "</p>";
-                echo "<a href='edit_food_item.php?id=" . $row["id"] . "' class='btn btn-primary'>Edit</a>";
-                echo "<a href='delete_food_item.php?id=" . $row["id"] . "' class='btn btn-danger ml-2'>Delete</a>";
-                echo "</div></div></div>";
-            }
-        } else {
-            echo "<div class='col'><p>No food items found.</p></div>";
-        }
-        $conn->close();
         ?>
-    </div>
-</div>
+
+    </table>
+    <!-- Add form for adding new item -->
+    <h3>Add New Item</h3>
+    <form method="post" action="add_item.php">
+        <label for="item_name">Item Name:</label>
+        <input type="text" id="item_name" name="item_name" required><br>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" required><br>
+        <!-- Add more fields if necessary -->
+        <input type="submit" value="Add Item">
+    </form>
 </body>
 </html>

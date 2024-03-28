@@ -16,15 +16,15 @@
         <!-- Example: -->
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $food_item['name']; ?>" required>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo $item['name']; ?>" required>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <input type="text" class="form-control" id="description" name="description" value="<?php echo $food_item['description']; ?>" required>
+            <input type="text" class="form-control" id="description" name="description" value="<?php echo $item['description']; ?>" required>
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
-            <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?php echo $food_item['price']; ?>" required>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?php echo $item['price']; ?>" required>
         </div>
         <input type="hidden" name="id" value="<?php echo $food_item['id']; ?>">
         <button type="submit" class="btn btn-primary">Update</button>
