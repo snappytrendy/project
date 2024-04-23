@@ -46,6 +46,7 @@ session_start();
         <br>
         <button type="submit">Submit</button>
     </form>
+    <h3> Dont have an account click  <a href="http://localhost/project/signup.php">here</a> to signup!<h3>
     <div id="successMessage" class="success"></div>
     <div id="errorMessage" class="error"></div>
 </div>

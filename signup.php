@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <input type="submit" value="Register">
         </form>
-
+        <h3> Already have an account click <a href="http://localhost/project/login.php">here</a> to Login!<h3>
 
     </section>
 
