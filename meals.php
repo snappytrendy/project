@@ -58,7 +58,7 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='column'>";
                     echo "<h3>" . $row["name"] . "</h3>";
-                    echo "<p>Description: " . $row["description"] . "</p>";
+                    echo "<p>" . $row["description"] . "</p>";
                     echo "<p>Price: $" . $row["price"] . "</p>";
                     echo "<img src='" . $row["image_url"] . "' alt='" . $row["name"] . "' style='max-width: 100%;'>";
                     echo "<button class='add-to-cart' data-name='" . $row["name"] . "' data-price='" . $row["price"] . "' data-image='" . $row["image_url"] . "'>Add to Cart</button>";
